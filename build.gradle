@@ -13,7 +13,7 @@ kotlin {
     jvmToolchain(17)
 }
 
-def ROBOT_MAIN_CLASS = "frc.robot.Main"
+def ROBOT_MAIN_CLASS = "frc.robot.kotlin.MainKt" // TODO: Update this if changing your package
 
 sourceSets {
     main {
@@ -110,7 +110,14 @@ wpi.sim.addDriverstation()
 jar {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     from sourceSets.main.allSource
-    manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
+    from sourceSets.main.output
+
+    manifest {
+        attributes(
+            'Main-Class': ROBOT_MAIN_CLASS
+        )
+    }
+
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
