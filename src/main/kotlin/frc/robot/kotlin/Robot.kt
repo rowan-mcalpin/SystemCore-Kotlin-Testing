@@ -1,6 +1,7 @@
 package frc.robot.kotlin
 
 import edu.wpi.first.wpilibj.TimedRobot
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj2.command.Command
 
 class Robot : TimedRobot() {
@@ -39,6 +40,7 @@ class Robot : TimedRobot() {
 
     /** This autonomous runs the autonomous command selected by your [RobotContainer] class.  */
     override fun autonomousInit() {
+        SmartDashboard.putString("Status", "Initialized")
         autonomousCommand = robotContainer.autonomousCommand
 
         // schedule the autonomous command (example)
