@@ -1,5 +1,7 @@
 package frc.robot.kotlin
 
+import edu.wpi.first.wpilibj.XboxController
+
 /**
  * This is the Kotlin equivalent to the Java "Constants.java" class.
  * 
@@ -7,7 +9,6 @@ package frc.robot.kotlin
  * put any methods in this class. All variables must be declared as 'val'
  */
 object Constants {
-    object OperatorConstants {
-        val kDriverControllerPort: Int = 0
-    }
+
+    val controller : XboxController = XboxController(0)
 }
